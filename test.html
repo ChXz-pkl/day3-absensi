@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <button onclick="kirim()">Tes Kirim ke Sheets</button>
+
+  <script>
+    function kirim() {
+      fetch("https://script.google.com/macros/s/AKfycbyZc1_Pz9y-widlibkASScJlRXvNl7dMCA1vub5hg_92pEOWIOJ8by2F1j9xY7HNuW14g/exec", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify([{ 
+          nama: "Test Manual", 
+          waktu: new Date().toISOString(), 
+          alasan: "Uji", 
+          oleh: "tester"
+        }])
+      })
+      .then(r => r.text())
+      .then(console.log)
+      .catch(console.error);
+    }
+  </script>
+</body>
+</html>
