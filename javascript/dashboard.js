@@ -187,6 +187,12 @@ async function syncIfNeeded() {
   }
 }
 
+window.syncNow = async () => {
+  const shouldSync = confirm("Kirim data kemarin ke Google Sheets?");
+  if (!shouldSync) return;
+  await syncIfNeeded();
+};
+
 
 window.logout = () => {
   localStorage.clear();
