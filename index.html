@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChX Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+      text-align: center;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 80%;
+      max-width: 600px;
+      background-color: white;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .late {
+      color: red;
+      font-weight: bold;
+    }
+
+    .on-time {
+      color: green;
+      font-weight: bold;
+    }
+
+    /* Bungkus tabel agar bisa scroll di HP */
+    .table-wrapper {
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    /* Responsif untuk layar kecil */
+    @media (max-width: 600px) {
+      .top-bar {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      form,
+      .controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      button,
+      input,
+      select {
+        width: 100%;
+      }
+
+      table {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Halo, ayo absen disini</h1>
+  <p>Silakan lihat absensi di bawah ini. Jika ingin menambahkan absen, silakan login dulu.</p>
+  <a href="login-page.html">Ayo Login</a>
+  <a href="register.html" style="background-color:#2196F3;">Daftar Akun Baru</a>
+
+  <div class="table-wrapper">
+    <table id="absenTable">
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>Waktu</th>
+          <th>Status</th>
+          <th>alasan</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  
+  <script type="module" src="javascript/index.js">
+</script>
+
+
+</body>
+
+</html>

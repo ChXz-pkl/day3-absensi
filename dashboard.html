@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Absensi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 30px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    form,
+    .controls {
+      margin: 15px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    input,
+    select,
+    button {
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    table {
+      margin: 0 auto;
+      width: 90%;
+      max-width: 800px;
+      background-color: white;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .late {
+      color: red;
+      font-weight: bold;
+    }
+
+    .on-time {
+      color: green;
+      font-weight: bold;
+    }
+
+    .alasan-badge {
+      font-style: italic;
+    }
+
+    .delete-btn {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .delete-btn:hover {
+      background-color: #d32f2f;
+    }
+
+    #mingguNav button {
+      margin: 2px;
+      padding: 6px 12px;
+      border: 1px solid red;
+      background: skyblue;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #mingguNav button.active {
+      background-color: #46d44a;
+      border: 1px solid green;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .top-bar {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      form,
+      .controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      button,
+      input,
+      select {
+        width: 100%;
+      }
+
+      table {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div id="userInfo">Login sebagai ...</div>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <h1>Dashboard Absensi</h1>
+  <p id="rekapMingguan"></p>
+
+  <div class="controls">
+    <select id="filterStatus">
+      <option value="all">Semua Status</option>
+      <option value="Tepat Waktu">Tepat Waktu</option>
+      <option value="Terlambat">Terlambat</option>
+    </select>
+
+    <select id="filterAlasan">
+      <option value="all">Semua Alasan</option>
+      <option value="Hadir">Hadir</option>
+      <option value="Sakit">Sakit</option>
+      <option value="Izin">Izin</option>
+      <option value="Bolos">Bolos</option>
+    </select>
+  </div>
+
+  <div id="mingguNav"></div>
+
+  <form id="absenForm">
+    <input type="text" id="nama" placeholder="Nama" required disabled />
+    <select id="alasan">
+      <option value="Hadir">Hadir</option>
+      <option value="Sakit">Sakit</option>
+      <option value="Izin">Izin</option>
+      <option value="Bolos">Bolos</option>
+    </select>
+    <button type="submit">Absen</button>
+  </form>
+
+  <div class="table-wrapper">
+    <table id="absenTable">
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>Waktu</th>
+          <th>Status</th>
+          <th>Alasan</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script type="module" src="javascript/dashboard.js">
+  </script>
+</body>
+</html>
